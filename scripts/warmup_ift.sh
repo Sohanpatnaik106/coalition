@@ -1,0 +1,16 @@
+python main.py \
+    --name multi-turn-llm-agents \
+    --project multi-turn-llm-agents \
+    --save_dir ./logs/llama3-8b-warmup-instruction-tuning \
+    --version llama3-8b-warmup-instruction-tuning \
+    --dataset_name CoT \
+    --hf_dataset_path kaist-ai/CoT-Collection \
+    --hf_dataset_config en \
+    --cache_dataset_path ./dataset/warmup_ift_llama3_8b_dataset.json \
+    --tokenizer_type llama3 \
+    --tokenizer_path meta-llama/Meta-Llama-3-8B \
+    --hf_model_path meta-llama/Meta-Llama-3-8B \
+    --hf_token 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 \
+    --log_model 1 \
+    --per_device_train_batch_size 4 \
+    --max_epochs 2
