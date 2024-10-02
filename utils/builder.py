@@ -12,6 +12,12 @@ from data import (
     CoTDataset,
     GSM8KRationaleGenerationDataset,
     GSM8KRationaleRefinementDataset,
+    WinograndeRationaleGenerationDataset,
+    WinograndeRationaleRefinementDataset,
+    PIQARationaleGenerationDataset,
+    PIQARationaleRefinementDataset,
+    HellaswagRationaleGenerationDataset,
+    HellaswagRationaleRefinementDataset
 )
 
 from datasets import Dataset
@@ -34,11 +40,31 @@ def build_dataset(args, tokenizer=None, split="train"):
 
     if args.dataset_name == "CoT":
         return CoTDataset(dataset, args, tokenizer, "train")
+    
     elif args.dataset_name == "gsm8k":
         if args.generation_type == "rationale":
             return GSM8KRationaleGenerationDataset(dataset, args, tokenizer, split=split)
         elif args.generation_type == "rationale_refinement":
             return GSM8KRationaleRefinementDataset(dataset, args, tokenizer, split=split)
+
+    elif args.dataset_name == "winogrande":
+        if args.generation_type == "rationale":
+            return WinograndeRationaleGenerationDataset(dataset, args, tokenizer, split=split)
+        elif args.generation_type == "rationale_refinement":
+            return WinograndeRationaleRefinementDataset(dataset, args, tokenizer, split=split)
+
+    elif args.dataset_name == "piqa":
+        if args.generation_type == "rationale":
+            return PIQARationaleGenerationDataset(dataset, args, tokenizer, split=split)
+        elif args.generation_type == "rationale_refinement":
+            return PIQARationaleRefinementDataset(dataset, args, tokenizer, split=split)
+
+    elif args.dataset_name == "hellaswag":
+        if args.generation_type == "rationale":
+            return HellaswagRationaleGenerationDataset(dataset, args, tokenizer, split=split)
+        elif args.generation_type == "rationale_refinement":
+            return HellaswagRationaleRefinementDataset(dataset, args, tokenizer, split=split)
+        
     elif args.dataset_name == "sro":
 
         dataset = Dataset.from_dict(dataset)
