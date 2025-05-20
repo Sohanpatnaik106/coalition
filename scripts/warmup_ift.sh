@@ -10,7 +10,7 @@ python main.py \
     --tokenizer_type llama3 \
     --tokenizer_path meta-llama/Meta-Llama-3-8B \
     --hf_model_path meta-llama/Meta-Llama-3-8B \
-    --hf_token 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 \
+    --hf_token <hf_token> \
     --log_model 1 \
     --per_device_train_batch_size 4 \
     --max_epochs 2
